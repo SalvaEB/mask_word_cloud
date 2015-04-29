@@ -83,5 +83,5 @@ You can also specify the color used as mask in order to generate, for instance, 
 
 ![background_alice.png](EXAMPLES/background_alice.png)
 
-and the corresponding [EXAMPLES/background_alice.svg](svg) and [EXAMPLES/background_alice.pdf](pdf) files.
+and the corresponding [svg](EXAMPLES/background_alice.svg) and [pdf](EXAMPLES/background_alice.pdf) files.
 
