@@ -54,7 +54,7 @@ The following mask:
 
 has been taken from [this other word cloud repository](https://github.com/amueller/word_cloud).
 
-The file `peace.txt` contains a sorted list of utf-8 encoded words accompanied with an initial size, this is very rudimentary and could be greatly improved:
+The file [peace.txt](EXAMPLES/peace.txt) contains a sorted list of utf-8 encoded words accompanied with an initial size, this is very rudimentary and could be greatly improved:
 
 ```
 $ cat peace.txt
