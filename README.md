@@ -75,9 +75,7 @@ Is generated with the following command:
 
     ../maskwc -m alice_mask.png -r 30 -g 40 -b 30 -o alice_peace peace.txt
 
-Although it is better to check the [EXAMPLES/alice_peace.svg](svg) and [EXAMPLES/alice_peace.pdf](pdf) files:
-
-![alice_peace.svg](EXAMPLES/alice_peace.svg)
+Although it is better to check the [svg](EXAMPLES/alice_peace.svg) and [pdf](EXAMPLES/alice_peace.pdf) files.
 
 You can also specify the color used as mask in order to generate, for instance, a word cloud for the background:
 
@@ -85,7 +83,5 @@ You can also specify the color used as mask in order to generate, for instance, 
 
 ![background_alice.png](EXAMPLES/background_alice.png)
 
-and the corresponding [EXAMPLES/background_alice.svg](svg) and [EXAMPLES/background_alice.pdf](pdf) files:
-
-![background_alice.svg](EXAMPLES/background_alice.svg)
+and the corresponding [EXAMPLES/background_alice.svg](svg) and [EXAMPLES/background_alice.pdf](pdf) files.
 
