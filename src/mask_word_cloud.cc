@@ -156,8 +156,10 @@ void MaskWordCloud::dilateImage(int posx, int posy,
   // using BFS, not cache friendly and could be improved
   if (margin>0) {
     std::queue< std::pair<int,int> >  thequeue;
-    for (int y=posy; y<posy+bbHeight; ++y)
-      for (int x=posx; x<posx+bbWidth; ++x) {
+    int upY = std::min(posy+bbHeight,height);
+    int upX = std::min(posx+bbWidth,width);
+    for (int y=posy; y<upY; ++y)
+      for (int x=posx; x<upX; ++x) {
 	if (pxMat(x,y)[BLUE]>0) {
 	  pxMat(x,y)[BLUE]=margin+1;
 	  thequeue.push(std::make_pair(x,y));
@@ -172,7 +174,7 @@ void MaskWordCloud::dilateImage(int posx, int posy,
 	pxMat(x-1,y)[BLUE]=v;
 	if (v>0) thequeue.push(std::make_pair(x-1,y));
       }
-      if (x<width && pxMat(x+1,y)[BLUE]==0) {
+      if (x<width-1 && pxMat(x+1,y)[BLUE]==0) {
 	pxMat(x+1,y)[BLUE]=v;
 	if (v>0) thequeue.push(std::make_pair(x+1,y));
       }
@@ -180,7 +182,7 @@ void MaskWordCloud::dilateImage(int posx, int posy,
 	pxMat(x,y-1)[BLUE]=v;
 	if (v>0) thequeue.push(std::make_pair(x,y-1));
       }
-      if (y<height && pxMat(x,y+1)[BLUE]==0) {
+      if (y<height-1 && pxMat(x,y+1)[BLUE]==0) {
 	pxMat(x,y+1)[BLUE]=v; 
 	if (v>0) thequeue.push(std::make_pair(x,y+1));
       }
@@ -310,7 +312,7 @@ bool MaskWordCloud::paintWord(const char *text, double initialFontSz) {
       pdfCxt->show_text(text);
 
       // expects upper left corner
-      dilateImage(bbposx, bbposy-bbHeight, bbWidth, bbHeight, words_margin);
+      dilateImage(bbposx, bbposy-(bbHeight-1), bbWidth, bbHeight, words_margin);
       
       // freeze updates the "RLSA like" matrix and erases the content
       freezeImage(bbposx, bbposy, bbWidth, bbHeight, words_margin);

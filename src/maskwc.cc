@@ -24,7 +24,7 @@ void usage(const char *programname) {
     "Usage: " << programname << " \\\n"
     "\t[-h] \\ (show this help)\n"
     "\t[-r red_background] \\   (RGB of background, default 0 0 0 black\n"
-    "\t[-g green_background] \\  color components in scale 0-255\n"
+    "\t[-g green_background] \\  color components in scale 0-255)\n"
     "\t[-b blue_background] \\\n"
     "\t[-m mask_file] \\ (determines also the size of image)\n"
     "\t[-R red_mask] \\   (words can be painted where mask\n"
