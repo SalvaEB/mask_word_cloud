@@ -137,9 +137,17 @@ int main (int argc, char **argv) {
   std::string word;
   double freq;
   std::vector <std::pair<std::string,double> > wordsList;
-  while (fs >> word >> freq) {
-    wordsList.push_back(std::make_pair(word,freq));
+  std::string line;
+  std::string line_0;
+  std::string delimiter = ", ";
+
+  while (std::getline(fs, line)) {
+	word = line.substr(0, line.find(delimiter));
+	freq = std::stod(line.substr(line.find(delimiter) + 2, line.length()));
+	wordsList.push_back(std::make_pair(word, freq));
   }
+
+  std::cout << "wordsList.size(): " << wordsList.size() << "\n";
   bool goon=true;
   while (goon) {
     for (int i=0; goon && i<wordsList.size(); ++i) {
