@@ -37,7 +37,7 @@ void usage(const char *programname) {
     "\t[-o output_prefix] \\ (default \"output\" generate \"output.svg\" \"output.png\" and \"output.pdf\") \n"
     "\t[-d words_margin] \\ (default value is 2)\n"
     "\t[-v vertical_preference] \\ (value between 0 and 100, default is 50)\n"
-    "\twords.txt (an ordered list of pairs word initial_size)\n";
+    "\twords.txt (an ordered list of pairs word initial_size)\n"
     "\t[-С colorMode] \\ (Use random color pick: 0 - (using black text), (default: 1)\n";
 }
 
