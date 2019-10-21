@@ -26,7 +26,7 @@ MaskWordCloud::MaskWordCloud(const char *maskFilename,
 			     int    R, int    G, int    B,
 			     int vertical_preference,
 			     int words_margin,
-			     int font_step, int mini_font_sz, bool colorMode = true) :
+			     int font_step, int mini_font_sz, bool colorMode) :
   rd(std::random_device()()),
   vertical_preference(vertical_preference),
   words_margin(words_margin),
