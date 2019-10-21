@@ -23,6 +23,7 @@ class MaskWordCloud {
   int words_margin;
   int font_step, mini_font_sz;
   bool useColorSurface;
+  bool randColorMode;
 
   Cairo::RefPtr<Cairo::ImageSurface> overlapSurface;
   Cairo::RefPtr<Cairo::ImageSurface> wordCloudSurface;
@@ -74,7 +75,7 @@ public:
 		int    R, int    G, int    B,
 		int vertical_preference,
 		int words_margin,
-		int font_step, int mini_font_sz);
+		int font_step, int mini_font_sz, bool colorMode);
   ~MaskWordCloud();
   bool paintWord(const char *text, double initialFontSz);
   void writeImage(const char *filename);

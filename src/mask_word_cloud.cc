@@ -26,7 +26,7 @@ MaskWordCloud::MaskWordCloud(const char *maskFilename,
 			     int    R, int    G, int    B,
 			     int vertical_preference,
 			     int words_margin,
-			     int font_step, int mini_font_sz) :
+			     int font_step, int mini_font_sz, bool colorMode = true) :
   rd(std::random_device()()),
   vertical_preference(vertical_preference),
   words_margin(words_margin),
@@ -43,6 +43,7 @@ MaskWordCloud::MaskWordCloud(const char *maskFilename,
   maxwidthrow = new int[height](); // initialized to zero
   
   useColorSurface = (colorFilename!=0 && strlen(colorFilename)>0);
+  randColorMode = colorMode;
   if (useColorSurface) {
     colorSurface = Cairo::ImageSurface::create_from_png(colorFilename);
     assert(width  == colorSurface->get_width());
@@ -282,8 +283,10 @@ bool MaskWordCloud::paintWord(const char *text, double initialFontSz) {
       if (useColorSurface) {
 	// expects upper left corner
 	getMeanColor(bbposx,bbposy-bbHeight,bbWidth,bbHeight,r,g,b);
-      } else {
+      } else if(randColorMode) {
 	pickRandomColor(r,g,b);
+      } else {
+        r = g = b = 0.0;
       }
       
       overlapCxt->move_to(textposx,textposy);

@@ -38,6 +38,7 @@ void usage(const char *programname) {
     "\t[-d words_margin] \\ (default value is 2)\n"
     "\t[-v vertical_preference] \\ (value between 0 and 100, default is 50)\n"
     "\twords.txt (an ordered list of pairs word initial_size)\n";
+    "\t[-С colorMode] \\ (Use random color pick: 0 - (using black text), (default: 1)\n";
 }
 
 int main (int argc, char **argv) {
@@ -55,8 +56,9 @@ int main (int argc, char **argv) {
   int font_step=2;
   int mini_font_size=2;
   int words_margin=2;
+  bool colorMode = 1;
   int opt;
-  while ((opt = getopt(argc, argv, "hr:g:b:m:R:G:B:c:f:s:M:o:d:v:")) != -1) {
+  while ((opt = getopt(argc, argv, "hr:g:b:m:R:G:B:c:f:s:M:o:d:v:C:")) != -1) {
     switch (opt) 
       {
       case 'h':
@@ -104,6 +106,9 @@ int main (int argc, char **argv) {
       case 'v':
 	vertical_preference = atoi(optarg);
 	break;
+      case 'C':
+  colorMode = atoi(optarg);
+  break;
       default: /* '?' */
 	usage(argv[0]);
 	exit(EXIT_FAILURE);
@@ -130,7 +135,7 @@ int main (int argc, char **argv) {
 		    R,G,B,
 		    vertical_preference,
 		    words_margin,
-		    font_step,mini_font_size);
+		    font_step,mini_font_size, colorMode);
   
   std::ifstream fs;
   fs.open(termsfilename);
